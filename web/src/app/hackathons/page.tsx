@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const hackathons = [
   {
     slug: "monthly-hackathon-emergency-handover-docs",
@@ -25,39 +27,42 @@ export default function HackathonsPage() {
 
         <section className="mt-8 grid grid-cols-1 gap-4">
           {hackathons.map((hackathon) => (
-            <article
+            <Link
               key={hackathon.slug}
-              className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"
+              href={`/hackathons/${hackathon.slug}`}
+              className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700">
-                  {hackathon.status}
-                </span>
-              </div>
-
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-950">
-                {hackathon.title}
-              </h2>
-
-              <p className="mt-3 text-sm leading-6 text-zinc-600">
-                {hackathon.summary}
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {hackathon.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-600"
-                  >
-                    {tag}
+              <article>
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700">
+                    {hackathon.status}
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <p className="mt-6 text-sm font-medium text-zinc-500">
-                상세 페이지는 다음 단계에서 연결합니다.
-              </p>
-            </article>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-950">
+                  {hackathon.title}
+                </h2>
+
+                <p className="mt-3 text-sm leading-6 text-zinc-600">
+                  {hackathon.summary}
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {hackathon.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="mt-6 text-sm font-medium text-zinc-500">
+                  상세 보기 →
+                </p>
+              </article>
+            </Link>
           ))}
         </section>
       </div>
