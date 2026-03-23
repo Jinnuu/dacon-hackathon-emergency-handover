@@ -61,7 +61,7 @@ type HackathonDetail = {
 };
 
 const hackathonDetail: HackathonDetail = {
-  slug: "monthly-hackathon-emergency-handover-docs",
+  slug: "daker-handover-2026-03",
   title: "월간 해커톤 긴급 인수인계 해커톤",
   status: "진행 중",
   oneLiner: "문서만 남기고 사라진 프로젝트를 빠르게 제품처럼 복구하는 해커톤",
