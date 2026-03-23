@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const hackathons = [
   {
-    slug: "monthly-hackathon-emergency-handover-docs",
+    slug: "daker-handover-2026-03",
     title: "긴급 인수인계 해커톤 - 문서만 남기고 사라졌다",
     status: "진행 중",
     summary:
