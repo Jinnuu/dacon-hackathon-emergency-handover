@@ -105,26 +105,22 @@ const hackathonDetail: HackathonDetail = {
     {
       title: "기획 및 구조 파악",
       date: "03.01 - 03.05",
-      description:
-        "문서 분석, 화면 구조 설계, 상세 페이지 섹션 정의",
+      description: "문서 분석, 화면 구조 설계, 상세 페이지 섹션 정의",
     },
     {
       title: "핵심 화면 구현",
       date: "03.06 - 03.14",
-      description:
-        "홈, 목록, 상세 1차 구현 및 페이지 이동 흐름 연결",
+      description: "홈, 목록, 상세 1차 구현 및 페이지 이동 흐름 연결",
     },
     {
       title: "팀 모집 / 제출 / 리더보드 연결",
       date: "03.15 - 03.24",
-      description:
-        "팀 생성, 제출 상태, 랭킹 반영 흐름 정리",
+      description: "팀 생성, 제출 상태, 랭킹 반영 흐름 정리",
     },
     {
       title: "마감 및 데모 준비",
       date: "03.25 - 03.31",
-      description:
-        "UI 정리, 문구 다듬기, 심사용 데모 시나리오 점검",
+      description: "UI 정리, 문구 다듬기, 심사용 데모 시나리오 점검",
     },
   ],
   prizes: [
@@ -224,9 +220,9 @@ const hackathonDetail: HackathonDetail = {
 };
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const sectionLinks = [
@@ -242,6 +238,7 @@ const sectionLinks = [
 
 export default async function HackathonDetailPage({ params }: PageProps) {
   const { slug } = await params;
+
   if (slug !== hackathonDetail.slug) {
     return (
       <main className="min-h-screen bg-zinc-50 px-4 py-16 text-zinc-900 sm:px-6 lg:px-8">
@@ -481,9 +478,7 @@ export default async function HackathonDetailPage({ params }: PageProps) {
                       {team.isOpen ? "모집 중" : "모집 마감"}
                     </span>
                   </div>
-                  <p className="mt-3 text-sm text-zinc-500">
-                    팀원 {team.members}명
-                  </p>
+                  <p className="mt-3 text-sm text-zinc-500">팀원 {team.members}명</p>
                   <p className="mt-3 text-sm leading-6 text-zinc-700">
                     {team.intro}
                   </p>
